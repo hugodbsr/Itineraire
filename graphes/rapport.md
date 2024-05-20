@@ -46,7 +46,8 @@ L'algorithme de Dijkstra peut être utilisé pour résoudre le problème d'itin�
 
 ### Implémentation de la Version 1
 
-Nous allons effectuer l'implémentation de notre cas dans la classe de test `Version1Test.java`.
+Nous allons effectuer l'implémentation de notre cas dans la classe de test `Version1Test.java` qui se trouve dans le commit ** ** à la date du ****.
+Lien : 
 
 
 
