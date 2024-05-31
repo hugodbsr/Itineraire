@@ -1,5 +1,7 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import fr.ulille.but.sae_s2_2024.*;
@@ -26,13 +28,16 @@ public class Plateforme {
      */
     private Voyageur voyageur;
 
+    private List<Correspondance> correspondances;
+
     /**
      * Constructeur de la classe Plateforme.
      * @param data les données de la plateforme
      * @param voyageur le voyageur associé à la plateforme
      */
-    public Plateforme(String[] data, Voyageur voyageur) {
+    public Plateforme(String[] data, Voyageur voyageur, String correspondanceFilePath) throws IOException{
         this.lieux = new HashSet<>();
+        this.correspondances = new CsvExtract().extraireCorrespondances(correspondanceFilePath);
         DataExtract dataExtract = new DataExtract();
         ArrayList<String[]> ventile = dataExtract.ventilation(data);
         if (dataExtract.verificationVentilation(ventile)) {
@@ -69,6 +74,10 @@ public class Plateforme {
      */
     public Set<Trancon> getTroncons() {
         return troncons;
+    }
+
+    public List<Correspondance> getCorrespondances() {
+        return correspondances;
     }
 
     /**

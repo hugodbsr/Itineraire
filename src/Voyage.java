@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import fr.ulille.but.sae_s2_2024.*;
 
@@ -110,5 +111,17 @@ public class Voyage {
         if (voyageur.getPreference() == TypeCout.CO2) list = listCo2;
         if (voyageur.getPreference() == TypeCout.TEMPS) list = listTemps;
         return list;
+    }
+
+    public List<MonLieu> getPointsInteret() {
+        List<MonLieu> pointsInteret = new ArrayList<>();
+        pointsInteret.add(this.getDepart());
+        for (int i = 1; i < aretes.size(); i++) {
+            if (!aretes.get(i).getModalite().equals(aretes.get(i - 1).getModalite())) {
+                pointsInteret.add(aretes.get(i).getDepart());
+            }
+        }
+        pointsInteret.add(this.getArrivee());
+        return pointsInteret;
     }
 }

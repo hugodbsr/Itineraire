@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.List;
 
 import fr.ulille.but.sae_s2_2024.*;
 
@@ -74,6 +75,22 @@ public class MonTroncon implements Trancon {
      */
     public HashMap<TypeCout, Double> getCout() {
         return this.cout;
+    }
+
+    public static double coutCorrespondance(List<Correspondance> correspondances, String ville, ModaliteTransport from, ModaliteTransport to, TypeCout critere) {
+        for (Correspondance c : correspondances) {
+            if (c.getVille().equalsIgnoreCase(ville) && c.getFrom() == from && c.getTo() == to) {
+                switch (critere) {
+                    case TEMPS:
+                        return c.getMinutes();
+                    case CO2:
+                        return c.getCo2();
+                    case PRIX:
+                        return c.getEuro();
+                }
+            }
+        }
+        return 0;
     }
 
     /**
