@@ -113,15 +113,4 @@ public class Voyage {
         return list;
     }
 
-    public List<MonLieu> getPointsInteret() {
-        List<MonLieu> pointsInteret = new ArrayList<>();
-        pointsInteret.add(this.getDepart());
-        for (int i = 1; i < aretes.size(); i++) {
-            if (!aretes.get(i).getModalite().equals(aretes.get(i - 1).getModalite())) {
-                pointsInteret.add(aretes.get(i).getDepart());
-            }
-        }
-        pointsInteret.add(this.getArrivee());
-        return pointsInteret;
-    }
 }
