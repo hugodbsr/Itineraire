@@ -1,0 +1,9 @@
+Paris_Nord;Lille_Flandres;Train;25;0.8;80
+Paris_Nord;Lille_Flandres;Bus;10;0.5;120
+Paris_Nord;Arras;Train;15;0.5;60
+Paris_Nord;Arras;Bus;8;0.4;90
+Paris_Nord;Douai;Train;20;0.6;70
+Paris_Nord;Douai;Bus;12;0.4;100
+Lille_Flandres;IUT;Bus;0.5;0.05;20
+Arras;IUT;Bus;1;0.1;25
+Douai;IUT;Bus;1;0.2;30
