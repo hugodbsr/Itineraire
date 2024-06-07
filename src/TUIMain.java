@@ -16,8 +16,9 @@ public class TUIMain {
      * Elle initialise les données, demande les préférences de l'utilisateur, et permet de rechercher des chemins
      * en fonction de ces préférences avec un contrôle de saisie 
      * @param args
+     * @throws RoadException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RoadException {
         Scanner scanner = new Scanner(System.in);
 
         // Données initiales de transport entre différentes villes

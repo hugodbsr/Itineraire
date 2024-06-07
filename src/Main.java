@@ -7,8 +7,9 @@ public class Main {
 /**
  * On ajoute des données de test, on crée un voyageur, une plateforme et on teste le plus court chemin
  * @param args
+ * @throws RoadException
  */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RoadException {
         String[] data = new String[]{
             "villeA;villeB;Train;60;1.7;80",
             "villeB;villeD;Train;22;2.4;40",

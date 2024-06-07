@@ -1,33 +1,24 @@
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.List;
 
 import fr.ulille.but.sae_s2_2024.*;
 
 public class MainV2 {
-
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, CSVFormatException, RoadException {
         String correspondanceFilePath = "res/correspondance.csv";
         String dataFilePath = "res/data.csv";
 
-        File dataFile = new File(dataFilePath);
-        Scanner scanner = new Scanner(dataFile);
-        ArrayList<String> lines = new ArrayList<>();
-        while (scanner.hasNextLine()) {
-            lines.add(scanner.nextLine());
-        }
-        String[] dataLines = lines.toArray(new String[0]);
-        scanner.close();
+        Voyageur voyageur = new Voyageur("Toto", TypeCout.PRIX, Arrays.asList(ModaliteTransport.TRAIN, ModaliteTransport.BUS), -1, -1, -1);
 
-        Voyageur voyageur = new Voyageur("Toto", TypeCout.CO2, ModaliteTransport.TRAIN, -1, -1, 150);
+        Plateforme plateforme = new Plateforme(dataFilePath, correspondanceFilePath);
 
-        Plateforme plateforme = new Plateforme(dataLines, voyageur, correspondanceFilePath);
-
-        MonLieu depart = plateforme.getLieuNom("villeC");
+        MonLieu depart = plateforme.getLieuNom("villeA");
         MonLieu arrivee = plateforme.getLieuNom("villeD");
 
-        Voyage voyage = new Voyage(null, arrivee, depart);
-        System.out.println(voyage.plusCourtChemins(plateforme, voyageur));
+        Voyage voyage = new Voyage(depart, arrivee);
+        List<Chemin> chemins = voyage.plusCourtChemins(plateforme, voyageur);
+        System.out.println(voyage.toString(chemins, plateforme));
     }
 }
+

@@ -2,42 +2,43 @@ import fr.ulille.but.sae_s2_2024.ModaliteTransport;
 
 public class Correspondance {
     private String ville;
-    private ModaliteTransport from;
-    private ModaliteTransport to;
-    private int minutes;
+    private ModaliteTransport ModDepart;
+    private ModaliteTransport ModArrivee;
+    private double temps;
     private double co2;
-    private double euro;
+    private double prix;
 
-    public Correspondance(String ville, ModaliteTransport from, ModaliteTransport to, int minutes, double co2, double euro) {
+    public Correspondance(String ville, ModaliteTransport ModDepart, ModaliteTransport ModArrivee, int temps, double co2, double prix) {
         this.ville = ville;
-        this.from = from;
-        this.to = to;
-        this.minutes = minutes;
+        this.ModDepart = ModDepart;
+        this.ModArrivee = ModArrivee;
+        this.temps = temps;
         this.co2 = co2;
-        this.euro = euro;
+        this.prix = prix;
     }
 
     public String getVille() {
         return ville;
     }
 
-    public ModaliteTransport getFrom() {
-        return from;
+    public ModaliteTransport getDepart() {
+        return ModDepart;
     }
 
-    public ModaliteTransport getTo() {
-        return to;
+    public ModaliteTransport getArrivee() {
+        return ModArrivee;
     }
 
-    public int getMinutes() {
-        return minutes;
+    public double getTemps() {
+        return temps;
     }
 
     public double getCo2() {
         return co2;
     }
 
-    public double getEuro() {
-        return euro;
+    public double getPrix() {
+        return prix;
     }
+    
 }

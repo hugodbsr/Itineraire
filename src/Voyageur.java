@@ -1,9 +1,11 @@
+import java.util.List;
+
 import fr.ulille.but.sae_s2_2024.ModaliteTransport;
 
 /**
  * Classe Voyageur
- * @author Hugo Debuyser, Gaël Dierynck, Maxence Antoine
- * Permet de décrire un voyageur type, avec un nom, une préférence de coût et un moyen de transport
+ * Auteur: Hugo Debuyser, Gaël Dierynck, Maxence Antoine
+ * Permet de décrire un voyageur type, avec un nom, une préférence de coût et plusieurs moyens de transport.
  * Getter et Setter fournis. 
  */
 public class Voyageur {
@@ -18,9 +20,9 @@ public class Voyageur {
     private TypeCout preference;
 
     /**
-     * Le moyen de transport préféré du voyageur.
+     * Les moyens de transport préférés du voyageur.
      */
-    private ModaliteTransport transport;
+    private List<ModaliteTransport> transports;
 
     /**
      * La contrainte de prix du voyageur.
@@ -41,15 +43,15 @@ public class Voyageur {
      * Constructeur de la classe Voyageur.
      * @param nom Le nom du voyageur.
      * @param preference La préférence de coût du voyageur.
-     * @param transport Le moyen de transport préféré du voyageur.
+     * @param transports Les moyens de transport préférés du voyageur.
      * @param prix La contrainte de prix du voyageur.
      * @param co2 La contrainte de CO2 du voyageur.
      * @param temps La contrainte de temps du voyageur.
      */
-    public Voyageur(String nom, TypeCout preference, ModaliteTransport transport, int prix, int co2, int temps) {
+    public Voyageur(String nom, TypeCout preference, List<ModaliteTransport> transports, int prix, int co2, int temps) {
         this.nom = nom;
         this.preference = preference;
-        this.transport = transport;
+        this.transports = transports;
         this.prix = prix;
         this.co2 = co2;
         this.temps = temps;
@@ -72,11 +74,11 @@ public class Voyageur {
     }
 
     /**
-     * Retourne le moyen de transport préféré du voyageur.
-     * @return Le moyen de transport préféré.
+     * Retourne les moyens de transport préférés du voyageur.
+     * @return Les moyens de transport préférés.
      */
-    public ModaliteTransport getTransport() {
-        return transport;
+    public List<ModaliteTransport> getTransports() {
+        return transports;
     }
 
     /**
@@ -120,11 +122,11 @@ public class Voyageur {
     }
 
     /**
-     * Définit le moyen de transport préféré du voyageur.
-     * @param transport Le nouveau moyen de transport préféré.
+     * Définit les moyens de transport préférés du voyageur.
+     * @param transports Les nouveaux moyens de transport préférés.
      */
-    public void setTransport(ModaliteTransport transport) {
-        this.transport = transport;
+    public void setTransports(List<ModaliteTransport> transports) {
+        this.transports = transports;
     }
 
     /**

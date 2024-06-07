@@ -28,14 +28,14 @@ public class Version1Test {
     }
 
     @Test
-    public void testGetLieuNomExisting() {
+    public void testGetLieuNomExisting() throws RoadException {
         MonLieu lieu = plateforme.getLieuNom("Paris Nord");
         assertNotNull(lieu);
         assertEquals("Paris Nord", lieu.getNom());
     }
 
     @Test
-    public void testGetLieuNomNonExisting() {
+    public void testGetLieuNomNonExisting() throws RoadException {
         MonLieu lieu = plateforme.getLieuNom("Marseille");
         assertNull(lieu);
     }
@@ -48,7 +48,7 @@ public class Version1Test {
     }
 
     @Test
-    public void testGetGraphe() {
+    public void testGetGraphe() throws RoadException {
         MultiGrapheOrienteValue graphe = plateforme.getGraphe(TypeCout.PRIX);
         assertNotNull(graphe);
         assertEquals(5, graphe.sommets().size());
@@ -56,7 +56,7 @@ public class Version1Test {
     }
 
     @Test
-    public void testPlusCourtChemins() {
+    public void testPlusCourtChemins() throws RoadException {
         Voyage voyage = new Voyage(null, plateforme.getLieuNom("IUT"), plateforme.getLieuNom("Paris Nord"));
         List<Chemin> chemins = voyage.plusCourtChemins(plateforme, toto);
         assertEquals(3, chemins.size());

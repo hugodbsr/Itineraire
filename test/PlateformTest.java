@@ -28,14 +28,14 @@ public class PlateformTest {
     }
 
     @Test
-    public void testGetLieuNomExisting() {
+    public void testGetLieuNomExisting() throws RoadException {
         MonLieu lieu = plateforme.getLieuNom("villeA");
         assertNotNull(lieu);
         assertEquals("villeA", lieu.getNom());
     }
 
     @Test
-    public void testGetLieuNomNonExisting() {
+    public void testGetLieuNomNonExisting() throws RoadException {
         MonLieu lieu = plateforme.getLieuNom("villeX");
         assertNull(lieu);
     }
@@ -48,7 +48,7 @@ public class PlateformTest {
     }
 
     @Test
-    public void testGetGraphe() {
+    public void testGetGraphe() throws RoadException {
         MultiGrapheOrienteValue graphe = plateforme.getGraphe(TypeCout.CO2);
         assertNotNull(graphe);
         assertEquals(4, graphe.sommets().size());
@@ -56,7 +56,7 @@ public class PlateformTest {
     }
 
     @Test
-    public void testGetGrapheWithEmptyData() {
+    public void testGetGrapheWithEmptyData() throws RoadException {
         Voyageur voyageur = new Voyageur("Titi", TypeCout.PRIX, ModaliteTransport.TRAIN, -1, -1, -1);
         Plateforme plateformeWithEmptyData = new Plateforme(new String[]{}, voyageur);
         MultiGrapheOrienteValue graphe = plateformeWithEmptyData.getGraphe(TypeCout.PRIX);
@@ -66,7 +66,7 @@ public class PlateformTest {
     }
 
     @Test
-    public void testShortestPathWithEnvironmentImpact() {
+    public void testShortestPathWithEnvironmentImpact() throws RoadException {
         Voyageur voyageur = new Voyageur("Toto", TypeCout.CO2, ModaliteTransport.TRAIN, -1, -1, 180);
         Plateforme plateforme = new Plateforme(data, voyageur);
         MonLieu depart = plateforme.getLieuNom("villeC");
