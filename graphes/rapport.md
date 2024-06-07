@@ -141,7 +141,8 @@ Pour illustrer notre modèle, voici comment notre graphe pourrait être représe
 Cette modélisation nous permet de représenter efficacement les différents itinéraires possibles pour Toto, et de prendre en compte les divers moyens de transport ainsi que les correspondances disponibles.
 
 ### Implémentation de la Version 2
-La classe de test `Version2Test.java` sera utilisée pour implémenter et tester la solution pour la Version 2. Cette classe se trouve dans le commit **[INSÉRER L'IDENTIFIANT DU COMMIT]** à la date du **[INSÉRER LA DATE]**.
+La classe de test `Version2Test.java` sera utilisée pour implémenter et tester la solution pour la Version 2. Cette classe se trouve dans le commit **9c161c703216d025680e46c5528956e68998b5db** à la date du **7 Juin 2024 à 22:56**.
+(Les classes de test ne fonctionne pas, mais la logique devrais être la bonne, cela est surement dûs au fait que certaines classes ne fonctionne pas correctement)
 
 Version 3 : optimisation multi-critères
 ---
