@@ -75,7 +75,11 @@ public class MonTroncon implements Trancon {
     public HashMap<TypeCout, Double> getCout() {
         return this.cout;
     }
-
+    /**
+     * Compare les modalités de transport de deux tronçons.
+     * @param autre
+     * @return true si les modalités = autre modalités, false sinon
+     */
     public boolean compareModalite(MonTroncon autre) {
         return this.getModalite().equals(autre.getModalite());
     }
@@ -84,6 +88,7 @@ public class MonTroncon implements Trancon {
      * Retourne une représentation sous forme de chaîne du tronçon de transport.
      * @return Une description textuelle du tronçon.
      */
+    @Override
     public String toString() {
         return "De " + this.depLieu + " à " + this.aLieu + " en " + this.modaliteTransport;
     }
