@@ -50,35 +50,98 @@ Nous allons effectuer l'implémentation de notre cas dans la classe de test `Ver
 Lien : https://gitlab.univ-lille.fr/sae2.01-2.02/2024/F8/-/commit/84297a0870cc2c5ba3191273950bccaf026624fb
 
 
-
 Version 2 : multimodalité et prise en compte des correspondances
 ---
 
-*Cette section explique la solution pour la Version 2 du projet.*
-
 ### Présentation d'un exemple
 
-*Présenter un exemple concret (plateforme, couts de correspondance, critère d'optimalité).*
-*Donner la solution du problème du point de vue de l'utilisatrice (quels sont les itinéraires possibles, lesquels sont optimaux et pourquoi).*
-*Il est possible d'utiliser le même exemple que pour la Version 1 ou le modifier si pertinent.*
+Toto habite à Paris et souhaite se rendre à l'IUT de Lille afin d'assister à un cours important. Cette fois-ci, Toto dispose de différentes options de déplacement impliquant plusieurs moyens de transport et des correspondances entre ceux-ci. Toto a toujours les mêmes préoccupations : minimiser le coût de son trajet, réduire son empreinte écologique et limiter la durée de son voyage.
+
+#### Plateforme :
+| Départ      | Arrivée    | Moyen | Prix (en €) | Pollution (en kg CO2) | Durée (en minutes) |
+|-------------|------------|-------|-------------|------------------------|---------------------|
+| Paris Nord  | Lille Flandres | Train | 25          | 0.8                    | 80                  |
+| Paris Nord  | Lille Flandres | Bus   | 10          | 0.5                    | 120                 |
+| Paris Nord  | Arras      | Train | 15          | 0.5                    | 60                  |
+| Paris Nord  | Arras      | Bus   | 8           | 0.4                    | 90                  |
+| Paris Nord  | Douai      | Train | 20          | 0.6                    | 70                  |
+| Paris Nord  | Douai      | Bus   | 12          | 0.4                    | 100                 |
+| Lille Flandres | IUT        | Métro | 2           | 0.1                    | 15                  |
+| Lille Flandres | IUT        | Bus   | 0.5         | 0.05                   | 20                  |
+| Arras       | IUT        | Bus   | 1           | 0.1                    | 25                  |
+| Douai       | IUT        | Bus   | 1.5         | 0.15                   | 30                  |
+
+#### Correspondances :
+| Ville          | Correspondance 1 | Correspondance 2 | Prix (en €) | Pollution (en kg CO2) | Durée (en minutes) |
+|----------------|------------------|------------------|-------------|------------------------|---------------------|
+| Paris Nord     | Train            | Bus              | 0           | 0                      | 10                  |
+| Paris Nord     | Bus              | Bus              | 0           | 0                      | 5                   |
+| Lille Flandres| Train            | Métro            | 0           | 0                      | 5                   |
+| Lille Flandres| Bus              | Métro            | 0           | 0                      | 10                  |
+| Arras          | Train            | Bus              | 0           | 0                      | 5                   |
+| Douai          | Train            | Bus              | 0           | 0                      | 5                   |
+
+Toto cherche à trouver les itinéraires les moins chers pour se rendre à l'IUT de Lille tout en minimisant son empreinte écologique et en tenant compte du temps de trajet. Les meilleures options pour lui seront celles qui offrent le meilleur compromis entre ces critères, en tenant compte des correspondances entre les différents moyens de transport.
 
 ### Modèle pour l'exemple
 
-*Donner le graphe modélisant l'exemple ci-dessus.*
-*Donner la solution du problème (càd les meilleurs itinéraires) en tant que chemins dans le graphe.*
+Pour modéliser le problème de Toto dans la Version 2, nous pouvons toujours utiliser un graphe où les sommets représentent les différentes gares et les arêtes représentent les liaisons entre ces gares, tout en tenant compte des correspondances entre les moyens de transport.
+
+Les meilleurs itniéraires pour toto sont :
+1. Paris Nord - Lille Flandres (Train) - IUT (Métro) pour un total de 27€
+2. Paris Nord - Lille Flandres (Bus) - IUT (Bus) pour un total de 10.5€
+3. Paris Nord - Arras (Train) - IUT (Bus) pour un total de 16€
+
+Les poids des arêtes incluront désormais les critères d'optimisation ainsi que les coûts de correspondance entre les moyens de transport. L'algorithme de Dijkstra sera également utilisé pour trouver les itinéraires optimaux.
 
 ### Modélisation pour la Version 2 dans le cas général
 
-*Mêmes questions que pour la section correspondante de la Version 1, mais cette fois-ci les données d'entrée contiennent aussi des couts de correspondance.*
-*Vous pouvez expliquer l'entièreté de la solution pour la Version 2, ou bien indiquer **clairement** les différences par rapport à la solution proposée pour la Version 1.*
+### Modélisation pour la Version 2 dans le cas général
+
+Dans cette version, nous prenons en compte les correspondances entre les différents moyens de transport et leurs coûts associés. Nous utilisons un modèle de graphe pour représenter les différents itinéraires possibles, en tenant compte des correspondances et de leurs implications sur le prix, l'empreinte écologique et la durée du trajet.
+
+Pour illustrer notre modèle, voici comment notre graphe pourrait être représenté avec notre exemple :
+
+**Sommets :**
+  - Paris Nord
+  - Lille Flandres
+  - Arras
+  - Douai
+  - IUT
+
+**Arêtes :**
+  - Paris Nord --> Lille Flandres : Train (25€, 0.8kg, 80min)
+  - Paris Nord --> Lille Flandres : Bus (10€, 0.5kg, 120min)
+  - Paris Nord --> Arras : Train (15€, 0.5kg, 60min)
+  - Paris Nord --> Arras : Bus (8€, 0.4kg, 90min)
+  - Paris Nord --> Douai : Train (20€, 0.6kg, 70min)
+  - Paris Nord --> Douai : Bus (12€, 0.4kg, 100min)
+  - Lille Flandres --> IUT : Métro (2€, 0.1kg, 15min)
+  - Lille Flandres --> IUT : Bus (0.5€, 0.05kg, 20min)
+  - Arras --> IUT : Bus (1€, 0.1kg, 25min)
+  - Douai --> IUT : Bus (1.5€, 0.15kg, 30min)
+
+**Correspondances :**
+
+**Lille Flandres :**
+  - Train --> Bus : 0€, 0kg, 10min
+  - Train --> Train : 0€, 0kg, 2min
+  - Bus --> Bus : 3€, 0kg, 3min
+
+**Arras :**
+  - Train --> Bus : 0€, 0kg, 10min
+  - Train --> Train : 0€, 0kg, 2min
+  - Bus --> Bus : 3€, 0kg, 3min
+
+**Douai :**
+  - Train --> Bus : 0€, 0kg, 10min
+  - Train --> Train : 0€, 0kg, 2min
+  - Bus --> Bus : 3€, 0kg, 3min
+
+Cette modélisation nous permet de représenter efficacement les différents itinéraires possibles pour Toto, et de prendre en compte les divers moyens de transport ainsi que les correspondances disponibles.
 
 ### Implémentation de la Version 2
-
-*Écrire une classe de test qui reprend l'exemple, définit toutes les données de la plateforme, construit le graphe et calcule la solution.*
-*Votre classe peut utiliser des assertions (test unitaire) ou bien afficher la solution.*
-*Donner ici le **nom complet de la classe**, **la date et l'identifiant du commit à regarder** et un **lien vers la page de cette classe sur gitlab qui correspond au bon commit***.
-*En particulier, il peut s'agir de la même classe que celle donnée pour la Version 1, mais un commit différent.*
-
+La classe de test `Version2Test.java` sera utilisée pour implémenter et tester la solution pour la Version 2. Cette classe se trouve dans le commit **[INSÉRER L'IDENTIFIANT DU COMMIT]** à la date du **[INSÉRER LA DATE]**.
 
 Version 3 : optimisation multi-critères
 ---
