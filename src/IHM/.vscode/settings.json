@@ -1,0 +1,15 @@
+{
+    "java.project.referencedLibraries": [
+        "/home/public/javafx-sdk-17.0.2/lib/*"
+    ],
+    "java.project.sourcePaths": [
+        "tp04",
+        "tp03",
+        "tp02",
+        "tp01",
+        "sae"
+    ],
+    "java.project.outputPath": "bin",
+    "java.debug.settings.console": "internalConsole",
+    "java.debug.settings.onBuildFailureProceed": true
+}
