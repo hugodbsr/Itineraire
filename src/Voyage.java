@@ -1,8 +1,9 @@
+import java.io.Serializable;
 import java.util.List;
 
 import fr.ulille.but.sae_s2_2024.*;
 
-public class Voyage {
+public class Voyage implements Serializable{
     /**
      * Le lieu d'arrivée du voyage.
      */
@@ -28,7 +29,7 @@ public class Voyage {
      * @return Le lieu d'arrivée.
      */
     public MonLieu getArrivee() {
-        return arrivee;
+        return this.arrivee;
     }
 
     /**
@@ -36,7 +37,7 @@ public class Voyage {
      * @return Le lieu de départ.
      */
     public MonLieu getDepart() {
-        return depart;
+        return this.depart;
     }
 
     /**

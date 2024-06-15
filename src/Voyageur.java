@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.util.List;
 
 import fr.ulille.but.sae_s2_2024.ModaliteTransport;
@@ -8,7 +9,7 @@ import fr.ulille.but.sae_s2_2024.ModaliteTransport;
  * Permet de décrire un voyageur type, avec un nom, une préférence de coût et plusieurs moyens de transport.
  * Getter et Setter fournis. 
  */
-public class Voyageur {
+public class Voyageur implements Serializable{
     /**
      * Le nom du voyageur.
      */

@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 import fr.ulille.but.sae_s2_2024.Lieu;
 
 /**
@@ -6,7 +8,7 @@ import fr.ulille.but.sae_s2_2024.Lieu;
  * 
  * @autor Hugo Debuyser, Gaël Dierynck, Maxence Antoine
  */
-public class MonLieu implements Lieu {
+public class MonLieu implements Lieu, Serializable{
     /**
      * Le nom du lieu de transport.
      */
