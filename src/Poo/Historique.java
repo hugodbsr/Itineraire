@@ -1,6 +1,7 @@
 package Poo;
 import java.io.*;
 import java.util.*;
+import fr.ulille.but.sae_s2_2024.*;
 
 public class Historique implements Serializable {
     private static final long serialVersionUID = 1L;

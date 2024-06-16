@@ -56,8 +56,6 @@ public abstract class Extractor {
         return true;
     }
 
-    protected abstract boolean isValid(String[] row);
-
     /**
      * Vérifie si la chaîne de caractères fournie correspond à une valeur de l'énumération
      * ModaliteTransport.
@@ -106,6 +104,16 @@ public abstract class Extractor {
         Lieu nouveauLieu = new MonLieu(nom);
         lieux.add(nouveauLieu);
         return nouveauLieu;
+    }
+
+    /**
+     * Cette méthode vérifie si une ligne de données est valide.
+     * Elle vérifie si le transport, les valeurs de CO2, d'euro et de minutes sont valides.
+     * @param row le tableau de chaînes de caractères représentant une ligne de données
+     * @return true si la ligne de données est valide, false sinon
+     */
+    protected boolean isValid(String[] row) {
+        return isTransport(row[2]) && isDouble(row[3]) && isDouble(row[4]) && isDouble(row[5]);
     }
 
 }

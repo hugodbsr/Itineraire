@@ -28,9 +28,9 @@ public class MainV3 {
 
         Voyage voyage = new Voyage(depart, arrivee);
         List<Chemin> chemins = voyage.plusCourtChemins(plateforme, voyageur);
-        System.out.println(voyage.toString(chemins, plateforme));
+        System.out.println(voyage.toString(chemins, plateforme, voyageur));
 
-        Historique historique = new Historique(voyageur, voyage);
+        Historique historique = new Historique(voyageur, voyage, chemins);
 
         historique.ajouterHistorique(historique);
 
@@ -39,7 +39,7 @@ public class MainV3 {
         List<Historique> historiqueCharge = historique.chargerHistorique(historiqueFilePath);
         for (Historique h : historiqueCharge) {
             System.out.println("Voyageur: " + h.getVoyageur().getNom());
-            System.out.println("Voyage: " + h.getVoyage().toString(chemins, plateforme));
+            System.out.println("Voyage: " + h.getVoyage().toString(chemins, plateforme, voyageur));
         }
     }
 }
