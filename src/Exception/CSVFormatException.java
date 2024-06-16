@@ -1,3 +1,4 @@
+package Exception;
 /**
  * La classe CSVFormatException est levée lorsqu'il y a une erreur dans le format d'un fichier CSV
  * Sous-classe de la classe Exception.

@@ -1,6 +1,9 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import Poo.MonLieu;
+import Poo.MonTroncon;
+import Poo.TypeCout;
 import fr.ulille.but.sae_s2_2024.ModaliteTransport;
 
 import java.util.HashMap;

@@ -1,5 +1,13 @@
 import org.junit.jupiter.api.Test;
 
+import Exception.CSVFormatException;
+import Exception.RoadException;
+import Poo.Correspondance;
+import Poo.MonLieu;
+import Poo.Plateforme;
+import Poo.TypeCout;
+import Poo.Voyage;
+import Poo.Voyageur;
 import fr.ulille.but.sae_s2_2024.ModaliteTransport;
 
 import static org.junit.jupiter.api.Assertions.*;

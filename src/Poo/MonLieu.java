@@ -1,3 +1,4 @@
+package Poo;
 import java.io.Serializable;
 
 import fr.ulille.but.sae_s2_2024.Lieu;

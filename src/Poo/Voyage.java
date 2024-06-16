@@ -1,6 +1,8 @@
+package Poo;
 import java.io.Serializable;
 import java.util.List;
 
+import Exception.RoadException;
 import fr.ulille.but.sae_s2_2024.*;
 
 public class Voyage implements Serializable{

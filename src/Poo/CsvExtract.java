@@ -1,8 +1,10 @@
+package Poo;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Exception.CSVFormatException;
 import fr.ulille.but.sae_s2_2024.ModaliteTransport;
 
 /**
