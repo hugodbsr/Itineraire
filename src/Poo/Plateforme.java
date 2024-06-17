@@ -111,9 +111,9 @@ public class Plateforme {
         return graphe;
     }
 
-    public Correspondance getCorrespondance(Lieu arrivee, ModaliteTransport modalite) {
+    public Correspondance getCorrespondance(Lieu lieu, ModaliteTransport modalite) {
         for (Correspondance correspondance : correspondances) {
-            if (correspondance.getVille().equals(((MonLieu)arrivee).getNom()) && correspondance.getDepart() == modalite) {
+            if (correspondance.getVille().equals(((MonLieu)lieu).getNom()) && correspondance.getModDepart() == modalite) {
                 return correspondance;
             }
         }

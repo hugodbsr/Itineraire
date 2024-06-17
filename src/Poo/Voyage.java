@@ -71,9 +71,9 @@ public class Voyage implements Serializable{
         List<Chemin> listTemps = null;
 
         try {
-            listPrix = AlgorithmeKPCC.kpcc(plateforme.getGrapheAvecCritereEtTransports(TypeCout.PRIX, voyageur.getTransports()), this.getDepart(), this.getArrivee(), 4);
-            listCo2 = AlgorithmeKPCC.kpcc(plateforme.getGrapheAvecCritereEtTransports(TypeCout.CO2, voyageur.getTransports()), this.getDepart(), this.getArrivee(), 4);
-            listTemps = AlgorithmeKPCC.kpcc(plateforme.getGrapheAvecCritereEtTransports(TypeCout.TEMPS, voyageur.getTransports()), this.getDepart(), this.getArrivee(), 4);
+            listPrix = AlgorithmeKPCC.kpcc(plateforme.getGrapheAvecCritereEtTransports(TypeCout.PRIX, voyageur.getTransports()), this.getDepart(), this.getArrivee(), 100);
+            listCo2 = AlgorithmeKPCC.kpcc(plateforme.getGrapheAvecCritereEtTransports(TypeCout.CO2, voyageur.getTransports()), this.getDepart(), this.getArrivee(), 100);
+            listTemps = AlgorithmeKPCC.kpcc(plateforme.getGrapheAvecCritereEtTransports(TypeCout.TEMPS, voyageur.getTransports()), this.getDepart(), this.getArrivee(), 100);
         } catch (RoadException e) {
             throw new RoadException("Aucun chemin trouvé pour le voyage : " + e.getMessage());
         }

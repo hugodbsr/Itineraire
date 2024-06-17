@@ -46,7 +46,7 @@ public class Correspondance {
      * 
      * @return le mode de transport de départ
      */
-    public ModaliteTransport getDepart() {
+    public ModaliteTransport getModDepart() {
         return modDepart;
     }
 
@@ -55,7 +55,7 @@ public class Correspondance {
      * 
      * @return le mode de transport d'arrivée
      */
-    public ModaliteTransport getArrivee() {
+    public ModaliteTransport getModArrivee() {
         return modArrivee;
     }
 

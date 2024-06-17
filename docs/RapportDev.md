@@ -3,6 +3,10 @@
 
  *De Hugo DEBUYSER, Gaël Dierynck, Maxence Antoine, groupe F*
 ___
+
+Avant de lancer quoique ce soit, veillez à mettre les chemins contenue dans les fichiers launch.json et settings.json en raccord avec les vôtres. 
+
+___
 ## Version 1 : Un seul moyen de transport
 
 #### Dans cette première version, il fallait faire la base du programme de cette saé : Calculer un itinéraire optimal entre deux villes, avec une seule modalité de transport et un seul type de ligne. Pour plus de renseignements, rendez vous sur le rapport de la partie ***Graphes***.
@@ -76,7 +80,7 @@ ___
 ## Version 2 : Multi-modalité et coût supplémentaire
 
 #### Pour cette version, l'utilisateur peut maintenant choisir plusieurs moyens de transport (Ex. Moitié du trajet en train puis en bus). Les modalités de l'utilisateur restent toujours la priorité dans le calcul de l'itinéraire. Mais cette fois-ci, nous devrons nous préprarer ajouter un coût supplémentaire pour chaque changement de transport.
-#### Un prototype d'interface humain-machine est aussi réalisé.
+#### Un maquettage d'interface humain-machine est aussi réalisé.
 ___ 
 
 ![alt text](../UML_V2.png)
@@ -106,3 +110,24 @@ Pour la partie **IHM**, la maquette basse fidélité est disponible en fichier P
 ___
 
 ## Version 3 : 
+
+#### Pour cette version, l'utilisateur peut maintenant sauvegarder les différents chemins qu'il a sélectionné, il lui a également possible à rechercher les différents chemins enregistrés au préalable en utilisant son prénom dans la recherche.
+#### Un prototype haute fidélité d'interface humain-machine est aussi réalisé.
+___ 
+
+![alt text](../UML_V3.png)
+
+Nous avons ajouté une nouvelle classe historique à notre projet.
+
+1 - La classe `Historique`
+
+La classe Historique permet de réaliser les différentes opérations concernant l'historique, que ce soit de l'enregistrement ou du chargement. L'utilisateur peut retrouver ses recherches précédentes avec son nom, tout est enregistré dans un fichier historique.bin
+Son attribut est `Map> historiqueMap`
+
+Du côté des modifications, des optimisations ont été faites au niveau de l'affichage dans la classe `voyage` au niveau du `toString`, maintenant, le changement de modalité est clairement affiché.
+
+Il y a un problème majeur que nous n'avons pas réussi à régler qui que si un chemin comporte un changement de modalité, si un coup y est associé, il ne sera pas pris en compte. Nous avons essayé diverses méthodes pour régler ce problème, mais aucun n'était convaincant, nous allons alors prit la décision de ne pas inclure cette fonctionnalité.
+
+La partie IHM se trouve dans `src/IHM` et la partie compte rendu se trouve dans le fichier du même nom.
+
+___

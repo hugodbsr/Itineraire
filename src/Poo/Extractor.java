@@ -5,7 +5,7 @@ import java.util.Set;
 
 import fr.ulille.but.sae_s2_2024.Lieu;
 import fr.ulille.but.sae_s2_2024.ModaliteTransport;
-public abstract class Extractor {
+public class Extractor {
 
     /**
      * Extrait des tronçons de transport à partir des données fournies et crée

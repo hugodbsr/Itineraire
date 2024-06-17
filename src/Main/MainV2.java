@@ -26,7 +26,7 @@ public class MainV2 {
 
         Voyage voyage = new Voyage(depart, arrivee);
         List<Chemin> chemins = voyage.plusCourtChemins(plateforme, voyageur);
-        System.out.println(voyage.toString(chemins, plateforme));
+        System.out.println(voyage.toString(chemins, plateforme, voyageur));
     }
 }
 
