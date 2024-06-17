@@ -86,7 +86,7 @@ Notre code se décompose en 2 nouvelles classes et quelques ajouts. Des traiteme
 1 - La classe `Correspondance`
 
     La classe correspondance organise les nouveaux trajets avec plusieurs modalités, à la manière de la classe voyage sans les algorithmes.
-Ses attributs sont `ModaliteTransport ModDepart``ModaliteTransport ModArrivee``double temps`
+Ses attributs sont `ModaliteTransport modDepart` `ModaliteTransport modArrivee` `double temps`
 
 &nbsp; 
 
@@ -101,6 +101,8 @@ Ses attributs sont `ModaliteTransport ModDepart``ModaliteTransport ModArrivee``d
 &nbsp;
 
 Du côté des modifications, des optimisations ont été réalisées pour plus d'efficacité, notamment dans la classe `Voyage.java` où le système d'algorithme à été changé pour pouvoir acceuillir les critères différents. Dans `Plateforme.java`, une fonction traitant les correspondances est ajoutée.
+
+Pour la partie **IHM**, la maquette basse fidélité est disponible en fichier PDF, il renseigne toutes les actions & visuels possibles.
 ___
 
 ## Version 3 : 
