@@ -236,7 +236,7 @@ Pour illustrer notre modèle, voici comment notre graphe pourrait être représe
 Cette modélisation nous permet de représenter efficacement les différents itinéraires possibles pour Toto, et de prendre en compte les divers moyens de transport ainsi que les correspondances disponibles.
 
 ### Implémentation de la Version 3
-La classe de test `Version3Test.java` sera utilisée pour implémenter et tester la solution pour la Version 3. Cette classe se trouve dans le commit **9c161c703216d025680e46c5528956e68998b5db** à la date du **7 Juin 2024 à 22:56**.
+La classe de test `Version3Test.java` sera utilisée pour implémenter et tester la solution pour la Version 3. Cette classe se trouve dans le commit **fb9bc6e933b26a97ab562120d7f69aa7b85d9e2b** à la date du **17 Juin 2024 à 21:50**.
 (Les classes de test ne fonctionne pas, mais la logique devrais être la bonne, cela est surement dû au fait que certaines classes ne fonctionne pas correctement)
 
 ----------------------------------------------------
