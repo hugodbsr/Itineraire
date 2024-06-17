@@ -42,128 +42,139 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="IHM.MonController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-            <VBox prefHeight="399.0" prefWidth="640.0">
-               <children>
-                  <VBox prefHeight="27.0" prefWidth="640.0">
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+          <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0">
+            <children>
+                  <VBox prefHeight="399.0" prefWidth="640.0">
                      <children>
-                    <Label alignment="CENTER" prefHeight="24.0" prefWidth="644.0" style="&#10;" text="Veuillez choisir vos modalités" textAlignment="CENTER" wrapText="false">
-                      <font>
-                        <Font size="20.0" />
-                      </font>
-                    </Label>
-                     </children>
-                     <VBox.margin>
-                        <Insets top="50.0" />
-                     </VBox.margin>
-                  </VBox>
-                  <HBox prefHeight="74.0" prefWidth="640.0">
-                     <children>
-                        <Pane prefHeight="40.0" prefWidth="240.0" style="-fx-border-color: black;">
-                           <HBox.margin>
-                              <Insets left="30.0" top="25.0" />
-                           </HBox.margin>
+                        <VBox prefHeight="27.0" prefWidth="640.0">
                            <children>
-                              <ChoiceBox layoutX="26.0" layoutY="13.0" prefHeight="24.0" prefWidth="180.0" />
+                          <Label alignment="CENTER" prefHeight="24.0" prefWidth="644.0" style="&#10;" text="Veuillez choisir vos modalités" textAlignment="CENTER" wrapText="false">
+                            <font>
+                              <Font size="20.0" />
+                            </font>
+                          </Label>
                            </children>
-                        </Pane>
-                        <Pane prefHeight="40.0" prefWidth="240.0" style="-fx-border-color: black;">
-                           <HBox.margin>
-                              <Insets left="100.0" top="25.0" />
-                           </HBox.margin>
-                           <children>
-                              <ChoiceBox layoutX="29.0" layoutY="12.0" prefHeight="24.0" prefWidth="180.0" />
-                           </children>
-                        </Pane>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </HBox>
-                  <Button mnemonicParsing="false" text="Historique">
-                     <VBox.margin>
-                        <Insets left="275.0" />
-                     </VBox.margin>
-                  </Button>
-                  <HBox prefHeight="144.0" prefWidth="640.0">
-                     <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets left="40.0" right="40.0" />
-                           </HBox.margin>
-                           <children>
-                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" style="&#10;" text="Préférence de filtre : " textAlignment="CENTER" wrapText="false">
-                                 <font>
-                                    <Font size="12.0" />
-                                 </font>
-                              </Label>
-                              <Separator layoutY="25.0" prefHeight="0.0" prefWidth="180.0">
-                                 <padding>
-                                    <Insets left="10.0" />
-                                 </padding>
-                              </Separator>
-                              <Label layoutX="58.0" layoutY="40.0" prefHeight="24.0" prefWidth="127.0" text="en minutes">
-                                 <graphic>
-                                    <TextField prefHeight="24.0" prefWidth="47.0" />
-                                 </graphic>
-                              </Label>
-                              <Label layoutX="58.0" layoutY="72.0" prefHeight="24.0" prefWidth="127.0" text="en Kg">
-                                 <graphic>
-                                    <TextField prefHeight="24.0" prefWidth="47.0" />
-                                 </graphic>
-                              </Label>
-                              <Label layoutX="58.0" layoutY="102.0" prefHeight="24.0" prefWidth="127.0" text="en €">
-                                 <graphic>
-                                    <TextField prefHeight="24.0" prefWidth="47.0" />
-                                 </graphic>
-                              </Label>
-                              <Label alignment="CENTER" layoutX="6.0" layoutY="76.0" prefHeight="16.0" prefWidth="45.0" text="Co2" />
-                              <Label alignment="CENTER" layoutX="5.0" layoutY="107.0" prefHeight="16.0" prefWidth="45.0" text="Prix" />
-                              <Label layoutX="9.0" layoutY="44.0" text="Temps" />
-                           </children>
-                        </Pane>
-                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" style="-fx-background-color: DodgerBlue;" text="Rechercher">
-                           <HBox.margin>
+                           <VBox.margin>
                               <Insets top="50.0" />
-                           </HBox.margin>
-                        </Button>
-                        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;">
-                           <HBox.margin>
-                              <Insets left="40.0" right="40.0" />
-                           </HBox.margin>
+                           </VBox.margin>
+                        </VBox>
+                        <HBox prefHeight="74.0" prefWidth="640.0">
                            <children>
-                              <Separator layoutX="1.0" layoutY="25.0" prefHeight="0.0" prefWidth="180.0">
-                                 <padding>
-                                    <Insets left="10.0" />
-                                 </padding>
-                              </Separator>
-                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" style="&#10;" text="Préférence de Transport : " textAlignment="CENTER" wrapText="false">
-                                 <font>
-                                    <Font size="12.0" />
-                                 </font>
-                              </Label>
-                              <CheckBox layoutX="31.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Train" />
-                              <CheckBox layoutX="31.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Bus" />
-                              <CheckBox layoutX="31.0" layoutY="95.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Avion" />
+                              <Pane prefHeight="40.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                 <HBox.margin>
+                                    <Insets left="30.0" top="25.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <ChoiceBox layoutX="26.0" layoutY="13.0" prefHeight="24.0" prefWidth="180.0" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="240.0" style="-fx-border-color: black;">
+                                 <HBox.margin>
+                                    <Insets left="100.0" top="25.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <ChoiceBox layoutX="29.0" layoutY="12.0" prefHeight="24.0" prefWidth="180.0" />
+                                 </children>
+                              </Pane>
                            </children>
-                        </Pane>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Button fx:id="histoButton" mnemonicParsing="false" text="Historique">
+                           <VBox.margin>
+                              <Insets left="275.0" />
+                           </VBox.margin>
+                        </Button>
+                        <HBox prefHeight="144.0" prefWidth="640.0">
+                           <children>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets left="40.0" right="40.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" style="&#10;" text="Préférence de filtre : " textAlignment="CENTER" wrapText="false">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Separator layoutY="25.0" prefHeight="0.0" prefWidth="180.0">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Separator>
+                                    <Label layoutX="58.0" layoutY="40.0" prefHeight="24.0" prefWidth="127.0" text="en minutes">
+                                       <graphic>
+                                          <TextField fx:id="tempsField" prefHeight="24.0" prefWidth="47.0" />
+                                       </graphic>
+                                    </Label>
+                                    <Label layoutX="58.0" layoutY="72.0" prefHeight="24.0" prefWidth="127.0" text="en Kg">
+                                       <graphic>
+                                          <TextField prefHeight="24.0" prefWidth="47.0" />
+                                       </graphic>
+                                    </Label>
+                                    <Label layoutX="58.0" layoutY="102.0" prefHeight="24.0" prefWidth="127.0" text="en €">
+                                       <graphic>
+                                          <TextField prefHeight="24.0" prefWidth="47.0" />
+                                       </graphic>
+                                    </Label>
+                                    <Label alignment="CENTER" layoutX="6.0" layoutY="76.0" prefHeight="16.0" prefWidth="45.0" text="Co2" />
+                                    <Label alignment="CENTER" layoutX="5.0" layoutY="107.0" prefHeight="16.0" prefWidth="45.0" text="Prix" />
+                                    <Label layoutX="9.0" layoutY="44.0" text="Temps" />
+                                 </children>
+                              </Pane>
+                              <Button fx:id="rechercherButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="110.0" style="-fx-background-color: DodgerBlue;" text="Rechercher">
+                                 <HBox.margin>
+                                    <Insets top="50.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;">
+                                 <HBox.margin>
+                                    <Insets left="40.0" right="40.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Separator layoutX="1.0" layoutY="25.0" prefHeight="0.0" prefWidth="180.0">
+                                       <padding>
+                                          <Insets left="10.0" />
+                                       </padding>
+                                    </Separator>
+                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="200.0" style="&#10;" text="Préférence de Transport : " textAlignment="CENTER" wrapText="false">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="checkTrain" layoutX="31.0" layoutY="34.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Train" />
+                                    <CheckBox layoutX="31.0" layoutY="65.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Bus" />
+                                    <CheckBox layoutX="31.0" layoutY="95.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Avion" />
+                                 </children>
+                              </Pane>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </HBox>
                      </children>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </HBox>
-               </children>
-            </VBox>
-      </children>
-    </AnchorPane>
+                  </VBox>
+            </children>
+          </AnchorPane>
+         </children>
+      </StackPane>
   </children>
 </VBox>
