@@ -1,49 +1,63 @@
 package Poo;
+
 import java.io.*;
 import java.util.*;
-import fr.ulille.but.sae_s2_2024.*;
+
+import fr.ulille.but.sae_s2_2024.Chemin;
 
 public class Historique implements Serializable {
-    private static final long serialVersionUID = 1L;
-    
-    private List<Historique> historiqueList;
+    private Map<Voyageur, List<String>> historiqueMap;
 
-    private Voyageur voyageur;
-    private Voyage voyage;
-    private List<Chemin> chemins;
-
-    public Historique(Voyageur voyageur, Voyage voyage, List<Chemin> chemins) {
-        this.voyageur = voyageur;
-        this.voyage = voyage;
-        this.chemins = chemins;
-        this.historiqueList = new ArrayList<>();
+    public Historique() {
+        historiqueMap = new HashMap<>();
     }
 
-    public Voyageur getVoyageur() {
-        return voyageur;
+    public Map<Voyageur, List<String>> getHistoriqueMap() {
+        return historiqueMap;
     }
 
-    public Voyage getVoyage() {
-        return voyage;
+    public void ajouterChemin(Voyageur voyageur, Chemin chemin) {
+        historiqueMap.computeIfAbsent(voyageur, k -> new ArrayList<>()).add(chemin.toString());
     }
 
-    public List<Chemin> getChemins() {
-        return chemins;
-    }
-
-    public void ajouterHistorique(Historique historique) {
-        historiqueList.add(historique);
-    }
-
-    public void sauvegarderHistorique(String chemin) throws IOException {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(chemin))) {
-            oos.writeObject(historiqueList);
+    public void sauvegarderHistorique(String filePath) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            oos.writeObject(historiqueMap);
         }
     }
 
-    public List<Historique> chargerHistorique(String chemin) throws IOException, ClassNotFoundException {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(chemin))) {
-            return (List<Historique>) ois.readObject();
+    @SuppressWarnings("unchecked")
+    public void chargerHistorique(String filePath) throws IOException, ClassNotFoundException {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
+            historiqueMap = (Map<Voyageur, List<String>>) ois.readObject();
+        }
+    }
+
+    public void chargerOuCreerHistorique(String filePath) throws IOException, ClassNotFoundException {
+        File file = new File(filePath);
+        if (file.exists()) {
+            chargerHistorique(filePath);
+        } else {
+            System.out.println("Aucun historique trouvé pour l'utilisateur, création d'une nouvelle entrée.");
+            historiqueMap = new HashMap<>();
+        }
+    }
+
+    public void afficherHistorique(String nomUtilisateur) {
+        boolean utilisateurTrouve = false;
+        System.out.println("Voyageur: " + nomUtilisateur);
+        for (Map.Entry<Voyageur, List<String>> entry : historiqueMap.entrySet()) {
+            Voyageur v = entry.getKey();
+            if (v.getNom().equals(nomUtilisateur)) {
+                utilisateurTrouve = true;
+                List<String> cheminList = entry.getValue();
+                for (String chemin : cheminList) {
+                    System.out.println("Chemin: " + chemin);
+                }
+            }
+        }
+        if (!utilisateurTrouve) {
+            System.out.println("Aucun historique trouvé pour l'utilisateur " + nomUtilisateur);
         }
     }
 }

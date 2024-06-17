@@ -3,14 +3,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import Exception.CSVFormatException;
-import Exception.RoadException;
-import Poo.Historique;
-import Poo.MonLieu;
-import Poo.Plateforme;
-import Poo.TypeCout;
-import Poo.Voyage;
-import Poo.Voyageur;
+import Exception.*;
+import Poo.*;
 import fr.ulille.but.sae_s2_2024.*;
 
 public class MainV3 {
@@ -30,16 +24,16 @@ public class MainV3 {
         List<Chemin> chemins = voyage.plusCourtChemins(plateforme, voyageur);
         System.out.println(voyage.toString(chemins, plateforme, voyageur));
 
-        Historique historique = new Historique(voyageur, voyage, chemins);
+        Historique historique = new Historique();
+        historique.chargerOuCreerHistorique(historiqueFilePath);
 
-        historique.ajouterHistorique(historique);
+        if (!chemins.isEmpty()) {
+            historique.ajouterChemin(voyageur, chemins.get(0));
+        }
 
         historique.sauvegarderHistorique(historiqueFilePath);
 
-        List<Historique> historiqueCharge = historique.chargerHistorique(historiqueFilePath);
-        for (Historique h : historiqueCharge) {
-            System.out.println("Voyageur: " + h.getVoyageur().getNom());
-            System.out.println("Voyage: " + h.getVoyage().toString(chemins, plateforme, voyageur));
-        }
+        historique.chargerHistorique(historiqueFilePath);
+        historique.afficherHistorique(voyageur.getNom());
     }
 }
