@@ -1,8 +1,10 @@
+package Poo;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import Exception.CSVFormatException;
 import fr.ulille.but.sae_s2_2024.ModaliteTransport;
 
 /**
@@ -55,16 +57,5 @@ public class CsvExtract extends Extractor {
             correspondances.add(new Correspondance(ville, from, to, minutes, co2, euro));
         }
         return correspondances;
-    }
-
-    /**
-     * Cette méthode vérifie si une ligne de données est valide.
-     * Elle vérifie si le transport, les valeurs de CO2, d'euro et de minutes sont valides.
-     * @param row le tableau de chaînes de caractères représentant une ligne de données
-     * @return true si la ligne de données est valide, false sinon
-     */
-    @Override
-    protected boolean isValid(String[] row) {
-        return isTransport(row[2]) && isDouble(row[3]) && isDouble(row[4]) && isDouble(row[5]);
     }
 }

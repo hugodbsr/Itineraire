@@ -1,7 +1,14 @@
+package Main;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import Exception.RoadException;
+import Poo.MonLieu;
+import Poo.Plateforme;
+import Poo.TypeCout;
+import Poo.Voyage;
+import Poo.Voyageur;
 import fr.ulille.but.sae_s2_2024.*;
 
 /**

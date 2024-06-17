@@ -1,5 +1,6 @@
- import fr.ulille.but.sae_s2_2024.ModaliteTransport;
- 
+package Poo;
+import fr.ulille.but.sae_s2_2024.ModaliteTransport;
+
 /**
  * La classe Correspondance représente une correspondance entre deux modes de transport
  * pour se déplacer d'une ville à une autre.

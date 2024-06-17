@@ -1,3 +1,4 @@
+package Exception;
 /**
  * La classe RoadException est levée lorsqu'une erreur est détectée dans la classe Road
  * Sous-classe de la classe Exception.

@@ -1,3 +1,4 @@
+package Poo;
 
 import java.util.ArrayList;
 
@@ -17,16 +18,5 @@ public class DataExtract extends Extractor {
             retour.add(datum.split(";"));
         }
         return retour;
-    }
-    
-    /**
-     * Vérifie si une ligne de données est valide.
-     *
-     * @param row le tableau de chaînes de caractères représentant une ligne de données
-     * @return true si la ligne de données est valide, sinon false
-     */
-    @Override
-    protected boolean isValid(String[] row) {
-        return isTransport(row[2]) && isDouble(row[3]) && isDouble(row[4]) && isDouble(row[5]);
     }
 }

@@ -1,8 +1,11 @@
+package Poo;
+import java.io.Serializable;
 import java.util.List;
 
+import Exception.RoadException;
 import fr.ulille.but.sae_s2_2024.*;
 
-public class Voyage {
+public class Voyage implements Serializable{
     /**
      * Le lieu d'arrivée du voyage.
      */
@@ -28,7 +31,7 @@ public class Voyage {
      * @return Le lieu d'arrivée.
      */
     public MonLieu getArrivee() {
-        return arrivee;
+        return this.arrivee;
     }
 
     /**
@@ -36,7 +39,7 @@ public class Voyage {
      * @return Le lieu de départ.
      */
     public MonLieu getDepart() {
-        return depart;
+        return this.depart;
     }
 
     /**
@@ -93,28 +96,37 @@ public class Voyage {
         return list;
     }
 
-    public String toString(List<Chemin> chemins, Plateforme plateforme) {
-        String representation = "";
-        for (int i = 0; i < chemins.size(); i++) {
-            Chemin chemin = chemins.get(i);
-            List<Trancon> aretes = chemin.aretes();
-            double poids = chemin.poids();
-            double prixTotal = poids;
-            String trajet = "Trajet de " + ((MonLieu)aretes.get(0).getDepart()).getNom() + " à " + ((MonLieu)aretes.get(aretes.size() - 1).getArrivee()).getNom() + ": ";
-            String changements = "Départ en " + aretes.get(0).getModalite() + " à " + ((MonLieu)aretes.get(0).getDepart()).getNom();
-            for (int j = 1; j < aretes.size(); j++) {
-                Trancon trancon = aretes.get(j);
-                if (!trancon.getModalite().equals(aretes.get(j - 1).getModalite())) {
-                    changements += ", changement à " + ((MonLieu)trancon.getArrivee()).getNom() + " en " + trancon.getModalite();
-                    Correspondance correspondance = plateforme.getCorrespondance(trancon.getArrivee(), trancon.getModalite());
-                    if (correspondance != null) {
-                        prixTotal += correspondance.getPrix();
+    public String toString(List<Chemin> chemins, Plateforme plateforme, Voyageur voyageur) {
+        String renvoie = "Chemins pour se rendre de " + this.depart + " à " + this.arrivee + ":" + System.getProperty("line.separator");
+        
+        for(int i = 0; i < chemins.size();i++){
+            Chemin cheminActu = chemins.get(i);
+            renvoie += i+1 + ") Chemin de " + depart.getNom() + " à " + arrivee.getNom() + ": ";
+            for(int j = 0; j < cheminActu.aretes().size(); j++){
+                MonTroncon arreteActu = (MonTroncon)cheminActu.aretes().get(j);
+                renvoie += "De " + arreteActu.getDepart() + " à " + arreteActu.getArrivee() + " en " + cheminActu.aretes().get(j).getModalite();
+                if(j+1 < cheminActu.aretes().size()){
+                    renvoie += ", ";
+                    MonTroncon arreteSuiv = (MonTroncon)cheminActu.aretes().get(j+1);
+                    if(!arreteActu.getModalite().equals(arreteSuiv.getModalite())){
+                        renvoie += "Changement à " + arreteActu.getArrivee() + " : " +  arreteActu.getModalite() + " -> " + arreteSuiv.getModalite() + ", " ;
                     }
                 }
             }
-            representation += trajet + changements + ". Cout total " + prixTotal + System.getProperty("line.separator");
+            renvoie += " pour un coût total de " + cheminActu.poids() + getUnit(voyageur.getPreference()) + System.getProperty("line.separator");
+            
         }
-        return representation;
+        return renvoie;
+    }
+
+    private String getUnit(TypeCout typeCout){
+        if(typeCout == TypeCout.CO2){
+            return "Kg";
+        }
+        if(typeCout == TypeCout.PRIX){
+            return " Euro";
+        }
+        return "minutes";
     }
 
 }
