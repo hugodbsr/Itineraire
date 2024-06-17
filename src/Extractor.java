@@ -4,7 +4,6 @@ import java.util.Set;
 
 import fr.ulille.but.sae_s2_2024.Lieu;
 import fr.ulille.but.sae_s2_2024.ModaliteTransport;
-
 public abstract class Extractor {
 
     /**

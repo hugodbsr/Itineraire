@@ -7,7 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class FXMLdemo extends Application {
+public class FXMLdemo extends Application{
 
     public void start(Stage stage) throws IOException {
             FXMLLoader loader = new FXMLLoader();
