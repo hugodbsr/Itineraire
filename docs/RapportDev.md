@@ -43,7 +43,22 @@ Ses attributs sont :
 4 - La classe `MonTroncon`
 
     Cette classe permet de décrire un tronçon de transport avec un lieu de départ, d'arrivée, une modalité de transport et un coût.
-Ses attributds sont : 
+Ses attributs sont : 
 `MonLieu depLieu` `MonLieu aLieu` ` ModaliteTransport modaliteTransport` ` HashMap<TypeCout , Double> cout`
 
-5 - La classe 
+5 - La classe `Voyage`
+
+    La classe Voyage.java décrit un voyage avec son arrivée, son départ et les arêtes présentes(lien avec Graphes). Cette classe utilise l'algorithme KPCC fourni par la librairie de la saé.
+La fonction `PlusCourtChemins` liste les PCC selon les critères donnés et calcule l'ensemble des chemins disponibles, en supprimant ceux qui ne sont pas dans les critères.
+Ses attributs sont : 
+`List<MonTroncon> aretes` `MonLieu arrivee` `MonLieu depart`  
+
+6 - La classe `Plateforme`
+
+    La classe Plateforme.java représente une plateforme de transport avec un Lieu, ses tronçons ainsi que le voyageur type. Elle retourne le graphe correspondant aux critères demandés par l'utilisateur. 
+Ses attributs sont : 
+`Set<Lieu> Lieux` `Set<Trancon> troncons` `Voyageur voyageur`
+
+7 - La classe `DataExtract`
+
+    
