@@ -23,7 +23,7 @@ public class FXMLdemo extends Application{
             stage.setScene(scene);
             stage.setTitle("FXML demo");
             stage.show();
-    }
+    }   
 
     public static void main(String[] args) {
             Application.launch(args);
