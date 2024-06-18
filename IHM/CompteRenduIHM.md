@@ -15,7 +15,7 @@ L'architecture de l'IHM est basée sur le modèle MC (Modèle-Contrôleur). Le r
 
 [Lien vers le gitlab](https://gitlab.univ-lille.fr/sae2.01-2.02/2024/F8)
 
-Commit : 
+Commit : https://gitlab.univ-lille.fr/sae2.01-2.02/2024/F8/-/commit/1c747c0c73fd97a060dadb1424b04756a78b0a36
 
 ## Prototypage
 
@@ -73,3 +73,6 @@ Tout au long de ce projet, nous avons soigneusement réfléchi à l'agencement d
 Nous nous sommes tous les trois occupés du prototypage de l'interface en échangeant régulièrement sur ce qu'il fallait faire ou non. Maxence a ainsi pris en charge la réalisation de notre vision. Hugo et Gaël ont travaillé à transcrire au mieux cette vision à l'aide de Scene Builder. 
 
 Cependant, nous avons parfois rencontré des difficultés pour mettre en place certaines fonctionnalités.
+Par exemple, le filtre concernant les chemins (temps, prix etc) ne fonctionne pas et seul le prix est affiché qui est le cout du chemin.
+Cela est dût en partie par manque de temps et par un manque de cohérence avec ce qui est possible dans la partie POO.
+Il aurait été possible d'ajouter les autres fonctionnalité, mais faute de temps.
