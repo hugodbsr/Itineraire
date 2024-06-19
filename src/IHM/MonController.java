@@ -293,7 +293,7 @@ private void selectionButtons(List<Chemin> chemins) {
     @FXML
     private List<String> CheminsToString(List<Chemin> chemins, String ville){
         List<String> villes = new ArrayList<>();
-        for(Chemin chemin : chemins){
+        for(int i = 0; i<chemins.size();i++){
             villes.add(ville);
         }
         return villes;
